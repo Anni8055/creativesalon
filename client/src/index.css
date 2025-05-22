@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 326 100% 95%; /* pink-100 */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 210 29% 24%; /* dark-blue */
+  --secondary-foreground: 0 0% 98%;
+  --accent: 142 71% 45%; /* green-500 */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 326 100% 95%;
+  --radius: 0.5rem;
+
+  /* Custom colors */
+  --salon-pink: 326 100% 95%;
+  --salon-pink-dark: 326 100% 85%;
+  --salon-green: 142 71% 45%;
+  --salon-yellow: 48 96% 53%;
+  --salon-blue: 200 100% 50%;
+  --light-gray: 0 0% 96%;
+  --dark-gray: 0 0% 20%;
+  --success: 145 63% 49%;
+  --error: 5 79% 58%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 47 71% 52%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 29% 24%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 5 79% 58%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground scroll-smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300 600;
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300 600;
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-in-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-in-out forwards;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease-in-out forwards;
+}
+
+/* Font families */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom colors */
+@layer utilities {
+  .bg-salon-pink {
+    background-color: hsl(var(--salon-pink));
+  }
+
+  .text-salon-pink {
+    color: hsl(var(--salon-pink));
+  }
+  
+  .bg-salon-pink-dark {
+    background-color: hsl(var(--salon-pink-dark));
+  }
+
+  .text-salon-pink-dark {
+    color: hsl(var(--salon-pink-dark));
+  }
+  
+  .bg-salon-green {
+    background-color: hsl(var(--salon-green));
+  }
+
+  .text-salon-green {
+    color: hsl(var(--salon-green));
+  }
+  
+  .bg-salon-yellow {
+    background-color: hsl(var(--salon-yellow));
+  }
+
+  .text-salon-yellow {
+    color: hsl(var(--salon-yellow));
+  }
+  
+  .bg-salon-blue {
+    background-color: hsl(var(--salon-blue));
+  }
+
+  .text-salon-blue {
+    color: hsl(var(--salon-blue));
+  }
+  
+  .bg-light-gray {
+    background-color: hsl(var(--light-gray));
+  }
+
+  .text-light-gray {
+    color: hsl(var(--light-gray));
+  }
+
+  .bg-dark-gray {
+    background-color: hsl(var(--dark-gray));
+  }
+
+  .text-dark-gray {
+    color: hsl(var(--dark-gray));
+  }
+
+  .border-salon-pink {
+    border-color: hsl(var(--salon-pink));
+  }
+
+  .border-salon-green {
+    border-color: hsl(var(--salon-green));
+  }
+  
+  .hover\:text-salon-pink:hover {
+    color: hsl(var(--salon-pink));
+  }
+  
+  .hover\:text-salon-green:hover {
+    color: hsl(var(--salon-green));
+  }
+  
+  .hover\:bg-salon-pink:hover {
+    background-color: hsl(var(--salon-pink));
+  }
+  
+  .hover\:bg-salon-pink-dark:hover {
+    background-color: hsl(var(--salon-pink-dark));
+  }
+  
+  .focus\:ring-salon-pink:focus {
+    --tw-ring-color: hsl(var(--salon-pink));
+  }
+}
+
+/* Custom input styles */
+.custom-input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-dark-gray;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-pink-300 text-white px-5 py-2 rounded-full hover:bg-pink-400 transition-all font-medium;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-pink-300 text-gray-700 px-5 py-2 rounded-full hover:bg-pink-100 hover:border-pink-400 transition-all font-medium;
+}
+
+.btn-large {
+  @apply px-8 py-3 text-lg;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
